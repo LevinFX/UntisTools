@@ -1,4 +1,5 @@
 const getAbsentLessons = require('./util/getAbsentLessons');
+
 const getClasses = require('./util/getClasses');
 const getTimetable = require('./util/getTimetable');
 const { logoutUntis } = require('./util/untisHelper');
@@ -30,16 +31,16 @@ app.get("/api/absent", async (req, res) => {
     }
 })
 
-app.listen(5000, () => {console.log("Server running on http://127.0.0.1:5000")})
-/*async function main() {
+app.get("/api/timetable", async (req, res) => {
     try {
-        const classes = await getTimetable(); 
-        console.log('Ergebnis:', classes);
+        const timetable = await getTimetable();
+        res.send(timetable)
     } catch (error) {
-        console.error('Hauptfehler:', error);
-    } finally {
-        await logoutUntis();
+        res.send("Error occured")
+        console.error("Error in absent Route:"+error)
+    }finally {
+        await logoutUntis()
     }
-}
+})
 
-main();*/
+app.listen(5000, () => {console.log("Server running on http://127.0.0.1:5000")})
