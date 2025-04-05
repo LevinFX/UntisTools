@@ -6,7 +6,7 @@ const express = require("express");
 
 const app = express();
 
-app.get("/classes", async (req, res) => {
+app.get("/api/classes", async (req, res) => {
     try {
         const classes = await getClasses()
         res.send(classes)
@@ -18,7 +18,7 @@ app.get("/classes", async (req, res) => {
     }
 })
 
-app.get("/absent", async (req, res) => {
+app.get("/api/absent", async (req, res) => {
     try {
         const absentLessons = await getAbsentLessons();
         res.send(absentLessons)
