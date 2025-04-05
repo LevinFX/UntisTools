@@ -1,0 +1,29 @@
+{
+  "name": "untistools",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/LevinFX/UntisTools#readme",
+  "bugs": {
+    "url": "https://github.com/LevinFX/UntisTools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LevinFX/UntisTools.git"
+  },
+  "license": "MIT",
+  "author": "LevinFX",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "webuntis": "^2.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
