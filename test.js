@@ -14,9 +14,9 @@ async function test(params) {
     const end = new Date();
     end.setDate(today.getDate()+5)
     today.setDate(today.getDate()-100)
-    let result = await untis.getPdfOfAbsentLesson(today,end)
+    let result = await untis.getTeachers()
 
-    //fs.writeFileSync("./data.json", JSON.stringify(result))    
+    fs.writeFileSync("./output.json", JSON.stringify(result))    
     
     console.table(result)
     await untis.logout();

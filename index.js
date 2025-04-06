@@ -4,6 +4,7 @@ const getClasses = require('./util/getClasses');
 const getData = require('./util/getData');
 const getMotd = require('./util/getMotd');
 const getStudents = require('./util/getStudents');
+const getTeachers = require('./util/getTeachers');
 const getTimetable = require('./util/getTimetable');
 const { logoutUntis } = require('./util/untisHelper');
 
@@ -89,4 +90,17 @@ app.get("/api/motd", async (req, res) => {
         await logoutUntis()
     }
 })
+
+app.get("/api/teachers", async (req, res) => {
+    try {
+        const teachers = await getTeachers();
+        res.send(teachers)
+    } catch (error) {
+        res.send("Error occured")
+        console.error("Error in teachers Route:"+error)
+    }finally {
+        await logoutUntis()
+    }
+})
+
 app.listen(5000, () => {console.log("Server running on http://127.0.0.1:5000")})
